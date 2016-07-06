@@ -1,0 +1,73 @@
+<!-- Create New Dropzone/Module -->
+<div class="container">
+    <div class="grid_12">
+
+        <ul class="bottom-banners">
+            <li>
+                <div class="banner">
+                    <div class="icon"><span class="icon-shipping"></span></div>
+                    <h3>Get <span>Free Shipping</span></h3>
+                    <p>on orders over &#163;35 for guests or &#163;25 for members</p>
+                </div>                                
+            </li>
+            <li>
+                <div class="banner">
+                    <div class="icon"><span class="icon-signin"></span></div>
+                    <h3>Sign up &amp; <span>Save</span></h3>
+                    <p>Members can enjoy additional discounts on top of guest prices and promotions.</p>
+                </div>                                
+            </li>
+            <!--
+            <li>
+                <div class="banner">
+                    <div class="icon social"><span class="icon-facebook"></span><span class="icon-twitter"></span><span class="icon-youtube"></span></div>
+                    <h3>Get <span>Social</span></h3>
+                    <p>Members can save up an extra percentage on top of guest prices &amp; promotions</p>
+                </div>                                
+            </li>                              
+            -->
+        </ul>
+
+        <div class="payments clearfix">
+            <div class="media">
+                <img alt="{{themeSettings.paymentsAlt}}" src="/resources/images/payments.png" alt="Payment types accepted include Paypal, Visa, MasterCard, Maestro, and American Express" />
+            </div>
+            <div class="media">
+            <a id="mhra-fmd-placeholder"><a href="http://medicine-seller-register.mhra.gov.uk/search-registry/6" alt="{{themeSettings.pclTitle}}" target="_blank"><img alt="{{themeSettings.pclAlt}}" src="https://pclportal.mhra.gov.uk/analytics/LogoSancoInternet_UK_B-336.png" width="110" height="92" /></a></a>
+                <a href="https://www.investorsinpeople.co.uk/" alt="{{themeSettings.accreditationTitle}}" target="_blank"><img alt="{{themeSettings.accreditationAlt}}" src="/resources/images/accreditation.jpg" alt="Investors in People"/></a>
+            </div>
+        </div>
+
+    </div>
+</div>                
+<!-- / --> 
+<footer class="mz-pagefooter">
+    <div class="container">
+        {% dropzone "footer" scope="site" %}
+        <div class="grid_2">
+            <img src="/resources/images/logo_footer.png" alt="galpharm" />
+        </div> 
+        <div class="grid_10">
+            <ul class="link-list">
+                <li><a href="/contact-us">Contact Us</a></li>                           
+                <li><a href="/faqs">FAQ</a></li>                           
+                <li><a href="/delivery-and-tracking-policy">Delivery / Tracking</a></li>                           
+                <li><a href="/return-policy">Returns</a></li>                           
+                <li><a href="/about-us">About Us</a></li>                           
+                <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>                           
+                <li><a href="/privacy-policy">Privacy Policy</a></li>                           
+                <li><a href="/cookie-policy">Cookie Policy</a></li>                           
+                <li><a href="/regulatory-policy">Regulatory Policy</a></li>                           
+                <li><a href="/corporate-social-responsibilities">Corporate &amp; Social Responsibility</a></li>                           
+            </ul>                  
+            <div class="mz-pagefooter-copyright" id="copyright" role="contentinfo">
+                <span class="mz-pagefooter-copyrighttext">
+                    &copy; Copyright {% now "Y" %} {{ themeSettings.copyrighttext|safe }}
+                </span> 
+                <span class="mz-pagefooter-poweredby visuallyhidden">
+                     {{ labels.poweredBy }}
+                </span>
+            </div>
+        </div>    
+    </div>
+</footer>

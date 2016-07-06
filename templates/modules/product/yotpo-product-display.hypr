@@ -1,0 +1,6 @@
+<div class="bl-yotpo-product-display" data-bl-yotpo-product-display="">
+	<div class="yotpo yotpo-main-widget" data-product-id="{{PageContext.productCode}}" data-name="{{PageContext.metaTitle}}" data-url="{{PageContext.url}}" data-image-url="" data-description="{{PageContext.metaDescription}}">
+	</div>
+</div>
+{% require_script "modules/yotpo-product-display" %}
+

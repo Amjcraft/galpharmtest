@@ -1,0 +1,57 @@
+<div class="rrsp-price" itemprop="priceSpecification" itemscope itemtype="http://schema.org/PriceSpecification">
+    {% if themeSettings.showMSRP and model.price.msrp %}
+    <span class="mz-price-msrp">{{ labels.msrp}}: <span class="mz-price">{{ model.price.msrp|currency }}</span></span>
+    {% endif %} 
+</div>
+
+<div class="clear">&nbsp;</div>
+
+<div itemprop="priceSpecification" itemscope itemtype="http://schema.org/PriceSpecification" class="mz-pricestack{% if model.priceRange %} mz-pricestack-range{% endif %}">    
+    {% if model.price.onSale %}
+
+        <span class="mz-price is-crossedout">
+            {{model.price.price|currency}}
+        </span>
+        <span itemprop="price" class="mz-price is-saleprice">
+            {% if model.discount.discount.name %}
+            <span class="mz-price-discountname">{{model.discount.discount.name}} &ndash;</span>
+            {% endif %}
+
+            {{model.price.salePrice|currency}}
+
+            {% if model.price.priceType == "MAP" %}
+            <div>add to cart to see final price</div>
+            {% endif %}
+        </span>
+    {% else %}
+
+        <span itemprop="price" class="mz-price">
+            {{model.price.price|currency}}
+
+            {% if model.price.priceType == "MAP" %}
+                <div>add to cart to see final price</div>
+            {% endif %}
+        </span>
+
+    {% endif %}
+
+    {% for property in model.properties %}
+        {% if property.attributeFQN == "tenant~member-price" || property.attributeFQN == "Tenant~member-price" %}
+            {% for v in property.values %}
+                {% if v.value %}
+                    <input type="hidden" data-member-price="&#163;{{ v.value }}" />
+                {%  endif %}
+            {% endfor %}
+        {% endif %}
+        {% if property.attributeFQN == "tenant~member-sale-price" || property.attributeFQN == "Tenant~member-sale-price" %}
+            {% for v in property.values %}
+                {% if v.value %}
+                    <input type="hidden" data-member-sale-price="&#163;{{ v.value }}" />
+                {%  endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    
+</div>
+
+

@@ -1,0 +1,64 @@
+@keyframes loadingthrob {
+    from { background-color: #eee; }
+     to { background-color: #e3e3e3; }
+}
+
+@-webkit-keyframes loadingthrob {
+    from { background-color: #eee; }
+     to { background-color: #e3e3e3; }
+}
+
+
+.mz-button {
+    .border-radius(4px);
+
+    min-width: 64px;
+    
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.125em;
+    font-weight: 700;
+    text-align: center;   
+    text-transform: uppercase;
+    padding: 10px;
+    background: #20cd61; /* Old browsers */
+    background: -moz-linear-gradient(top,  #20cd61 0%, #1ac860 26%, #07b85b 74%, #00b259 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#20cd61), color-stop(26%,#1ac860), color-stop(74%,#07b85b), color-stop(100%,#00b259)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #20cd61 0%,#1ac860 26%,#07b85b 74%,#00b259 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #20cd61 0%,#1ac860 26%,#07b85b 74%,#00b259 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #20cd61 0%,#1ac860 26%,#07b85b 74%,#00b259 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #20cd61 0%,#1ac860 26%,#07b85b 74%,#00b259 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20cd61', endColorstr='#00b259',GradientType=0 ); /* IE6-9 */    
+    
+    
+    &:hover {
+        background-color: #e3e3e3;
+    }
+    &:active {
+        .box-shadow(~"inset 0 0 4px #999)");
+        .box-shadow(~"inset 0 0 4px rgba(0,0,0,0.3)");
+    }
+    &[disabled], &[disabled]:active {
+        background-color: #eee;
+        border-color: #eee;
+        .box-shadow(none);
+    }
+}
+.mz-button-large {
+    font-size: @fontSizeLarge;
+    padding: @gutter/2 @gutter;
+}
+
+.mz-button-small {
+    font-size: @fontSizeSmall;
+    padding: @gutter/5 @gutter/4;
+    min-width: 40px;
+}
+
+.is-loading .mz-button, .mz-button.is-loading {
+    background-position: 50% 50%;
+    border-color: #eee;
+    color: transparent;
+    animation: loadingthrob 1s linear 0s alternate infinite;
+    -webkit-animation: loadingthrob 1s linear 0s alternate infinite;
+}

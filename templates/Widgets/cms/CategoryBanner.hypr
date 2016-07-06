@@ -1,0 +1,12 @@
+<section class="department-banner">
+    <div class="media">
+       <img src="{{Model.config.bannerUrl1}}" alt="{{Model.config.bannerAltText1}}"/>
+    </div>
+    <div class="content">
+        <h2>{{Model.config.bannerHeading1}} <span>{{Model.config.bannerSpan1}}</span></h2>
+        <p>{{Model.config.bannerDesc1}}</p>
+        {% if model.config.bannerAnchorUrl1 %}
+        <a href="{{cat.url}}" class="btn">{{Model.config.bannerLink1}}</a>
+        {% endif %}
+    </div>
+</section>

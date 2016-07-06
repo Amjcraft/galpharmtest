@@ -1,0 +1,16 @@
+<div class="bl-slider" data-bl-slider-config="{% json_attribute Model.config|default:"{}" %}">
+	{{Model.config.slidecontent|safe}}
+</div>
+
+
+{% if Model.config.cssInclude != "" %}
+    {% with "/cms/files/"|add:Model.config.cssInclude as path %}
+        <link rel="stylesheet" href="{% make_url "cdn" path %}">
+    {% endwith %}
+{% endif %}
+
+
+
+{% require_script "vendor/bxSlider/jquery.bxslider" %}
+{% require_script "vendor/bxSlider/jquery.fitvids" %}
+{% require_script "widgets/bl-slider" %}

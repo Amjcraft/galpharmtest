@@ -1,0 +1,7 @@
+<div class="mz-storebranding" id="store-branding" itemprop="headline">
+    <a href="/" title="{{ siteContext.generalSettings.websiteName }}">
+        <span class="visuallyhidden">{{ siteContext.generalSettings.websiteName }}</span>
+        <img src="{{themeSettings.headerLogo}}" alt="{{themeSettings.headerLogoAlt}}" />
+    </a>
+</div>
+    

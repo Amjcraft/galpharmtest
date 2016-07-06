@@ -1,0 +1,29 @@
+.mz-orderlisting {
+    @leftWidth: @orderDetailWidth + @gutter;
+    position: relative;
+    border: 1px solid #999;
+    min-height: @orderDetailWidth;
+
+    .mz-orderlisting-detail {
+        box-sizing: border-box;        
+        padding: @gutter/2;
+        background-color: #eee;
+    }
+    .mz-orderlisting-items {
+        padding: @gutter/2;
+    }
+    .mz-orderlisting-date {
+        margin: @gutter/4 0;
+    }
+    
+    @media (min-width:768px){
+        .mz-orderlisting-detail {
+            position: absolute;
+            height: 100%;
+            width: @leftWidth;
+        } 
+        .mz-orderlisting-items {
+            margin-left: @leftWidth;
+        }
+    }
+}

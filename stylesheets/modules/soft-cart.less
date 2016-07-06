@@ -1,0 +1,224 @@
+@-webkit-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:#eee;}        
+    100% {background-color:none;}
+}
+
+@-moz-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:#eee;}        
+    100% {background-color:none;}
+}
+
+@-ms-keyframes flash {
+    0% { background-color:none;}
+    50% { background-color:#eee;}        
+    100% {background-color:none;}
+}
+
+@media only screen and (max-width: 768px){
+    .soft-cart-wrap {
+        display: none !important;
+    }
+}
+@media only screen and (min-width: 769px){
+    .soft-cart-master-block{
+        .soft-cart-wrap.is-active, &:hover .soft-cart-wrap {
+            display: block;
+            position: absolute;
+            right: 0px;
+        }
+    } 
+    
+    /*.soft-cart-master-block {
+      &.is-active {
+        right: 0;
+        margin-right: 1.5%;
+        margin-top: 1%;
+        display: block;
+        //z-index: 111;
+      }  
+    }
+    .soft-cart-master-block .is-active {
+        right: 0;
+        margin-right: 1.5%;
+        margin-top: 1%;
+        display: block;
+    }
+    */
+    .soft-cart-wrap {
+      display: none;
+      //overflow-y: auto;
+      z-index: 1111;
+      background: #fff;
+      //background: @black;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      height: auto;
+      .box-shadow(~"0 0 15px rgba(0,0,0,0.2)");
+      width: 150%;
+      color: #000;
+      .transition(~"right 0.2s ease");
+      // &.is-active {
+      //   right: 0;
+      //   margin-right: 1.5%;
+      //   margin-top: 1%;
+      //   display: block;
+      //   //z-index: 111;
+      // }
+    }
+    
+    .soft-cart {
+      a {
+        color: #000;
+        text-decoration: none;
+        &:hover {
+          color: #000;
+          //background: @black;
+        }
+      }
+      h1 {
+        margin: @gutter/2;
+        color: #000;
+        font-weight: normal;
+        text-transform: uppercase;
+      }
+      .soft-cart-controls {
+        background: #E6E6E6;
+        //margin: @gutter/4 0;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding: 2% 0;
+      }
+      .soft-cart-control {
+        //float: right;
+        display: block;
+        padding: @gutter/5;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        background: #20cd61; /* Old browsers */
+        background: -moz-linear-gradient(top,  #20cd61 0%, #1ac860 26%, #07b85b 74%, #00b259 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#20cd61), color-stop(26%,#1ac860), color-stop(74%,#07b85b), color-stop(100%,#00b259)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #20cd61 0%,#1ac860 26%,#07b85b 74%,#00b259 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #20cd61 0%,#1ac860 26%,#07b85b 74%,#00b259 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #20cd61 0%,#1ac860 26%,#07b85b 74%,#00b259 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #20cd61 0%,#1ac860 26%,#07b85b 74%,#00b259 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20cd61', endColorstr='#00b259',GradientType=0 ); /* IE6-9 */
+        color: #ffffff;
+        font-size: 1.125em;
+        font-weight: 700;   
+        text-transform: uppercase;          
+      }
+      .soft-cart-total {
+        overflow: auto;
+        margin: @gutter/2;
+        border-top: 1px solid #000;
+        font-size: 1em;
+        text-transform: uppercase;
+        width: 90%;
+        display: inline-block;
+        //float: right; 
+      }
+      .soft-cart-total-section {
+          float: right;
+          text-align: right;
+          //width: 50%;
+          padding-top: 2%;
+      }
+      .soft-cart-total-label {
+        float: left;
+      }
+      .soft-cart-total-amount {
+        float: left;
+        padding-left: 15%;
+      }
+      .soft-cart-items-label {
+        margin: @gutter/2;
+        //border-bottom: 1px solid @mystic-lightgray;
+        //font-size: @fontSizeLarger;
+        text-transform: uppercase;
+      }
+      .soft-cart-items-small {
+        list-style: none;
+        padding: 0;
+        margin: @gutter/2;
+        height: auto;
+      }
+      .soft-cart-items {
+        //height: 225px;
+        //overflow-y: auto;
+        list-style: none;
+        padding: 0;
+        margin: @gutter/2;
+      }
+      .soft-cart-item {
+       // overflow: auto;
+        //border-bottom: 1px solid @mystic-lightgray;
+        margin: @gutter/4;
+        height: 100px;
+        &.highlight {
+          -moz-animation: flash 1s ease-out;
+          -moz-animation-iteration-count: 2;
+    
+          -webkit-animation: flash 1s ease-out;
+          -webkit-animation-iteration-count: 2;
+    
+          -ms-animation: flash 1s ease-out;
+          -ms-animation-iteration-count: 2;
+        }
+      }
+      .soft-cart-item-image {
+        max-width: 100%;
+        float: left;
+        //min-width: 100%;
+      }
+      .soft-cart-item-title {
+        display: block;
+        font-size: 1em;
+        margin-bottom: @gutter/2;
+        padding-left: 35%;
+      }
+      .soft-cart-item-quantity {
+        display: inline-block;
+      }
+      .soft-cart-item-action {
+        display: inline-block;
+        position: relative;
+        margin: 0 @gutter/2;
+        &-more {
+          bottom: 4px;
+        }
+        &-less {
+          top: 4px;
+        }
+      }
+      .soft-cart-item-total {
+        font-weight: bold;
+        float: right;
+        //margin-right: @gutter/4; 
+      }
+      .mz-soft-cart-noitems {
+        float: left;
+        padding-bottom: 3%;
+        text-align: center;
+        width: 100%;
+      }
+      .is-empty {
+          height: auto;
+      }
+    }
+}
+
+/*@media only screen and (min-width: 1400px) {
+    .soft-cart-wrap {
+        &.is-active {
+            right: 20%;
+        }
+    }
+}*/
+
+

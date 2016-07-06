@@ -1,0 +1,66 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %}  - {% parent %}{% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-customer-service {% endblock body-tag-classes %}
+
+{% block body-content %}
+
+<div class="container">                    
+    <div class="mz-l-stack grid_9 push_3">
+        <h1 class="title">Customer Service</h1>
+        
+        {% dropzone "customer-service-content" scope="page" %}
+        
+    </div>
+    
+   <div class="mz-l-sidebar grid_3 pull_9">
+        <nav class="mz-scrollnav affix-top" id="account-nav" data-mz-scrollnav="body">
+            <ul class="mz-scrollnav-list nav">
+                <li class="mz-scrollnav-item">
+                    <a class="mz-scrollnav-link" href="/customer-service">
+                        Customer Service Home
+                    </a>
+                </li>
+
+                <li class="mz-scrollnav-item">
+                    <a class="mz-scrollnav-link" href="/contact-us">
+                        Contact Us
+                    </a>
+                </li>
+                <li class="mz-scrollnav-item">
+                    <a class="mz-scrollnav-link" href="/myaccount">
+                        My Account
+                    </a>
+                </li>
+                <li class="mz-scrollnav-item">
+                    <a class="mz-scrollnav-link" href="/return-policy">
+                        Return Policy
+                    </a>
+                </li>
+                <li class="mz-scrollnav-item">
+                    <a class="mz-scrollnav-link" href="/privacy-policy">
+                        Privacy Policy
+                    </a>
+                </li>
+                <li class="mz-scrollnav-item">
+                    <a class="mz-scrollnav-link" href="/delivery-and-tracking-policy">
+                        Delivery / Tracking Policy
+                    </a>
+                </li>
+                <li class="mz-scrollnav-item">
+                <a class="mz-scrollnav-link" href="/regulatory-policy">
+                        Regulatory Policy
+                    </a>
+                </li>                
+                <li class="mz-scrollnav-item">
+                    <a class="mz-scrollnav-link" href="/faqs">
+                        FAQ
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+{% endblock body-content %}

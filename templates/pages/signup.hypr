@@ -1,0 +1,68 @@
+{% extends "page" %}
+
+{% block title-tag-content %} {{ labels.register }} - {% parent %} {% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-signup-page {% endblock body-tag-classes %}
+
+{% block body-content %}
+
+{% require_script "pages/myaccount" %}
+{% require_script "pages/signup" %}
+{% preload_json model "customer" %}
+
+<div class="container">
+    <div class="grid_12">
+        <div class="mz-l-container">
+            <div class="mz-l-wrapper">
+
+                <form method="post" data-mz-signup-form class="mz-loginform mz-loginform-page pure-form pure-form-aligned">
+                    <h1 class="title">Register</h1>
+                    <div data-mz-messagebar-container>
+                        {% include "modules/common/message-bar" with model=messages %}
+                    </div>
+                    <span class="mz-register-title">{{ labels.signuptitle }}</span>
+                    <h3>Login Information</h3>
+                    <fieldset>                                                                                                                      
+                        <div class="pure-control-group">
+                            <label>{{ labels.emailAddress }}<span class="is-required"> *</span></label>
+                            <input type="email" class="mz-input-field mz-signup-email" name="emailaddress" />
+                        </div>
+                        <div class="pure-control-group">
+                            <label>{{ labels.password }}<span class="is-required"> *</span></label>
+                            <input type="password" class="mz-input-field mz-signup-password" data-mz-pwd name="password" />
+                        </div>
+                        <div class="pure-control-group">
+                            <label>{{ labels.confirmPassword }}<span class="is-required"> *</span></label>
+                            <input type="password" class="mz-input-field mz-signup-confirmpassword" data-mz-confpwd name="confirmpassword" />                
+                        </div>                                                                                                  
+                    </fieldset>     
+                    <h3>Your Information</h3>           
+                    <fieldset>            
+                        <div class="pure-control-group mz-signup-firstname">
+                            <label>{{ labels.firstName }}<span class="is-required"> *</span></label>
+                            <input type="text" class="mz-input-field" maxlength="30" name="firstname" />
+                        </div>                  
+                        <div class="pure-control-group">
+                            <label>{{ labels.lastName }}<span class="is-required"> *</span></label>
+                            <input type="text" class="mz-input-field mz-signup-lastname"  maxlength="30" name="lastname" />
+                        </div>    
+                        <div style="text-align: center;">
+                            <input type="checkbox" name="agree" /> 
+                            <label style="position: relative; top: 3px; left: 5px;">{{ labels.ageCertify|safe }}<span class="is-required"> *</span></label>
+                        </div>                                                
+                    </fieldset>                   
+                    <button type="submit" class="mz-button mz-register-button" data-mz-action="signup">{{ labels.register }}</button>
+
+
+                </form>
+
+                
+                <div id="receiver"></div>
+            </div>
+        </div>
+    </div>
+</div>  
+{% endblock body-content %}
+
+
+

@@ -1,0 +1,47 @@
+<div class="hero-banner">
+    {% for catID in model.config.anchorurl1 %}
+    {% with navigation|find:catID as cat %}
+    <div class="item">
+	    <a href="{{cat.url}}" title="{{Model.config.link1}}">
+	        <div class="media"  style="background-image: url({{Model.config.url1}})"></div>
+	        <div class="container">
+	            <div class="content">
+	                <h2>{{Model.config.heading1}} <span>{{Model.config.span1}}</span></h2>  	                
+                	<p>{{Model.config.desc1}}</p>    
+	            </div>
+	        </div> 
+	    </a>                       
+    </div>    
+    {% endwith %}
+    {% endfor %}
+    {% for catID in model.config.anchorurl2 %}
+    {% with navigation|find:catID as cat %}
+    <div class="item">
+	    <a href="{{cat.url}}" title="{{Model.config.link2}}">
+	        <div class="media"  style="background-image: url({{Model.config.url2}})"></div>
+	        <div class="container">
+	            <div class="content">
+	                <h2>{{Model.config.heading2}} <span>{{Model.config.span2}}</span></h2>  	                
+                	<p>{{Model.config.desc2}}</p>       
+	            </div>
+	        </div> 
+	    </a>                         
+    </div>       
+    {% endwith %}
+    {% endfor %}
+    {% for catID in model.config.anchorurl3 %}
+    {% with navigation|find:catID as cat %}
+    <div class="item">
+        <a href="{{cat.url}}" title="{{Model.config.link3}}">
+	        <div class="media"  style="background-image: url({{Model.config.url3}})"></div>
+	        <div class="container">
+	            <div class="content">
+	                <h2>{{Model.config.heading3}} <span>{{Model.config.span3}}</span></h2>  	                
+                	<p>{{Model.config.desc3}}</p>       
+	            </div>
+	        </div> 
+    	</a>                      
+    </div>       
+    {% endwith %}
+    {% endfor %}
+</div>

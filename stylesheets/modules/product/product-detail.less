@@ -1,0 +1,124 @@
+.mz-productdetail-wrap {
+    .mz-pagetitle {
+        clear: none;
+        font-size: 2.125em;
+    }
+}
+
+.mz-productdetail {
+    overflow: auto;
+
+    .mz-productdetail-qty {
+        width: 75px;
+        display: inline-block;
+        margin-right: @gutter;
+    }
+
+    .mz-price {
+        font-size: @fontSizeLarge;
+    }
+
+    .mz-price-msrp {
+        display: block;
+        font-size: @fontSizeSmall;
+        color: lighten(@textColor, 15%);
+        .mz-price {
+            font-size: @fontSizeSmall;
+        }
+    }
+
+    .mz-productdetail-notpurchasable {
+        font-size: @fontSizeSmall;
+        margin: 5px 0;
+        color: #999;
+    }
+
+    .mz-productdetail-conversion {
+        background: #e6e6e6;
+        padding: 20px;
+        .clearfix();
+    }
+
+    .mz-productdetail-conversion-controls,
+    .mz-productdetail-conversion-buttons {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+        .mz-productdetail-conversion-buttons .mz-button {
+            display: block;
+            margin: 0 0 @gutter/2;
+        }
+
+    .mz-productbundle-measurements-product {
+        clear: both;
+    }
+
+    .mz-productbundle-measurements-productname {
+        font-weight: bold;
+    }
+    
+    .mz-propertylist.mz-propertylist-justified dd {
+        float: none;
+        margin: 0 0 0 5px;
+    }
+    
+    .mz-propertylist dt {
+        &:after {
+            margin-right: 5px;
+        }
+    }
+    
+    .mz-propertylist dd {
+        margin-left: 0px;
+    }
+    
+    .rrsp-price {
+        display: inline-block;
+        float: left;
+        padding: 10px 50px;
+        
+        .mz-price-msrp {
+            font-weight: 700;
+            color: #333;
+            font-size: 1em;
+            
+            .mz-price {
+                font-weight: 300;
+            }        
+        }
+    }    
+    
+    .mz-pricestack {
+        margin-bottom: 20px;
+        
+        &:before {
+            content: "Price:";
+            font-weight: 700;
+            color: #333;
+            font-size: 1em;
+            margin-right: 5px;
+        }
+    }
+
+}
+
+.mz-productdetail-measurements .mz-propertylist,
+.mz-productdetail-properties .mz-propertylist,
+.mz-productdetail-bundleitems .mz-propertylist {
+    float: none;
+    max-width: 400px;
+}
+
+.mz-productcodes {
+    display: inline-block;
+    color: #333333;
+    font-size: 1em;
+    font-weight: 400;    
+    padding: 10px 0 0 0;
+    float: left;
+}
+
+.mz-productoptions {
+    margin: 0 0 10px;
+}

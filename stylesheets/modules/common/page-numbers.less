@@ -1,0 +1,32 @@
+.mz-pagenumbers {
+    color: #999;
+    text-align: right;
+    
+    .mz-pagenumbers-number.is-current {
+        font-weight: 700;
+        text-decoration: none;
+        color: #00b259;
+    }
+    .mz-pagenumbers-next, .mz-pagenumbers-prev {
+        display: inline-block;
+        color: transparent;        
+        /*&:before {
+            color: @linkColor;
+            font-size: @fontSizeSmall;
+            content: "\25C0";
+        }*/
+    }
+    .mz-pagenumbers-next:before {
+        content: "\21";
+        font-family: 'icomoon';
+        color: #532f91;
+        font-size: 13px;
+    }
+    
+    a {
+        color: #532f91;  
+        text-decoration: none;
+        font-weight: 700;
+        padding: 0 2px;
+    }
+}

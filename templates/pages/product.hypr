@@ -1,0 +1,54 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.content.productName %}  - {% parent %}{% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-product {% endblock body-tag-classes %}
+
+{% block body-content %}
+<div class="container">
+    <div class="grid_12">
+        {% require_script "pages/product" %}
+
+        {% preload_json model "product" %}
+        <div itemscope itemtype="http://schema.org/Product" class="mz-l-container">
+
+
+
+            <div data-mz-productimages class="mz-productimages mz-l-sidebar">
+                {% include "modules/product/product-images" %}
+            </div>
+
+            <div class="mz-productdetail-wrap">
+                {% include "modules/common/message-bar" %}
+                <h1 class="mz-pagetitle" itemprop="name">
+                    {{ model.content.productName }}
+                    <span>
+                        {% for property in model.properties %}
+                            {% if property.attributeFQN == "tenant~unit-of-measure-description" || property.attributeFQN == "Tenant~unit-of-measure-description" %}
+                                {% for v in property.values %}
+                                    {% if v.stringValue %}
+                                        <span>{{ v.stringValue }}</span>
+                                    {%  endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}                
+                    </span>            
+                </h1>
+
+                <div id="product-detail" class="mz-productdetail mz-l-stack">
+
+                    {% include "modules/product/product-detail" %}
+                </div>
+            </div>
+
+            <hr />
+
+            {% include "modules/product/product-options" %}
+
+        </div>
+
+        <h2 class="mod-title">You may also like these <span>Products</span></h2>
+        {% dropzone "featured-items" scope="template" %}                   
+    </div>
+</div>
+{% endblock body-content %}

@@ -1,0 +1,16 @@
+<div class="bl-quick-view-window">
+	<h1 class="mz-pagetitle"><span itemprop="name">{{ model.content.productName }}</span></h1>
+
+	<div data-bl-productimages class="mz-productimages bl-quick-view-lightbox-productimages-container">
+		{% include "modules/quick-view/quick-view-product-images" %}
+	</div>
+
+	<div class="mz-productdetail-wrap">
+		{% include "modules/common/message-bar" %}
+		<div id="product-detail" class="mz-productdetail mz-l-stack">
+			{% include "modules/quick-view/quick-view-product-detail" %}
+		</div>
+	</div>
+	<span style="display: none;">{% dump model %}"</span>
+	<div class="bl-quick-view-product-detail-full"><a href="{{ model.url }}" title="View More Details">View More Details</a></div>
+</div>

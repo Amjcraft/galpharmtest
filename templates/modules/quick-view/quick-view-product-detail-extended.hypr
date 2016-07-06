@@ -1,0 +1,102 @@
+<ul class="bl-l-tabs">
+	<li class="mz-productdetail-fulldesc bl-l-tabs-section">
+		<h4 class="bl-l-tabs-sectiontitle">{{ labels.fullDesc }}</h4>
+
+		<div class="bl-l-tabs-sectioncontent">{{ model.content.productFullDescription|safe }}</div>
+	</li>
+
+	{% if model.productUsage == 'Bundle' %}
+	<li class="mz-productdetail-bundleitems bl-l-tabs-section">
+		<h4 class="bl-l-tabs-sectiontitle">{{ labels.bundleContents }}</h4>
+		
+		<div class="bl-l-tabs-sectioncontent">
+			<dl class="mz-propertylist mz-propertylist-justified">
+				{% for prod in model.bundledProducts %}
+				<dt>
+					{% if prod.quantity != 1 %}{{ prod.quantity }} x {% endif %}
+					{{ prod.content.productName }}
+				</dt>
+				<dd>
+					{{ prod.content.productShortDescription|safe }}
+					{% comment %}
+					{{ prod.productCode }}
+					{% endcomment %}
+				</dd>
+				{% endfor %}
+			</dl>
+			
+  			<br style="clear:both;"/>
+		</div>
+	</li>
+	{% endif %}
+
+	{% if model.properties and themeSettings.showProductDetailProperties %}
+	<li class="mz-productdetail-properties bl-l-tabs-section">
+		<h4 class="bl-l-tabs-sectiontitle">{{ labels.properties }}</h4>
+		
+		<div class="bl-l-tabs-sectioncontent">
+			<dl class="mz-propertylist mz-propertylist-justified">
+			{% for property in model.properties %}
+				{% if property.values and not property.isHidden %}
+				<dt>
+					{{property.attributeDetail.name}}
+				</dt>
+					{% for v in property.values %}
+				<dd>
+					{% if v.stringValue %}{{v.stringValue}}{% else %}{{v.value}}{% endif %}
+				</dd>
+					{% endfor %}
+				{% endif %}
+			{% endfor %}
+			</dl>
+			
+  			<br style="clear:both;"/>
+		</div>
+	</li>
+	{% endif %}
+
+	{% if model.measurements and themeSettings.showProductDetailMeasurements %}
+	<li class="mz-productdetail-measurements bl-l-tabs-section">
+		<h4 class="bl-l-tabs-sectiontitle">{{ labels.measurements }}</h4>
+		
+		<div class="bl-l-tabs-sectioncontent">
+			<dl class="mz-propertylist mz-propertylist-justified mz-propertylist-inline">
+				<dt>
+					Weight
+				</dt>
+				<dd itemprop="weight" itemscope itemtype="http://schema.org/QuantitativeValue">
+					<span itemprop="value">{{ model.measurements.packageWeight.value }}</span><span itemprop="unitCode">{{ model.measurements.packageWeight.unit }}</span>
+				</dd>
+			</dl>
+			<dl class="mz-propertylist mz-propertylist-justified mz-propertylist-inline">
+				<dt>
+					Length
+				</dt>
+				<dd itemprop="length" itemscope itemtype="http://schema.org/QuantitativeValue">
+					<span itemprop="value">{{ model.measurements.packageLength.value }}</span><span itemprop="unitCode">{{ model.measurements.packageLength.unit }}</span>
+				</dd>
+			</dl>
+			<dl class="mz-propertylist mz-propertylist-justified mz-propertylist-inline">
+				<dt>
+					Width
+				</dt>
+				<dd itemprop="width" itemscope itemtype="http://schema.org/QuantitativeValue">
+					<span itemprop="value">{{ model.measurements.packageWidth.value }}</span><span itemprop="unitCode">{{ model.measurements.packageWidth.unit }}</span>
+				</dd>
+			</dl>
+			<dl class="mz-propertylist mz-propertylist-justified mz-propertylist-inline">
+				<dt>
+					Height
+				</dt>
+				<dd itemprop="height" itemscope itemtype="http://schema.org/QuantitativeValue">
+					<span itemprop="value">{{ model.measurements.packageHeight.value }}</span><span itemprop="unitCode">{{ model.measurements.packageHeight.unit }}</span>
+				</dd>
+			</dl>
+			
+  			<br style="clear:both;"/>
+		</div>
+	</li>
+	{% endif %}
+</ul>
+
+{% require_script "layouts/tabs" %}

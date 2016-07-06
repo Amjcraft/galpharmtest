@@ -1,0 +1,97 @@
+.mz-utilitynav {
+    color: @textColor;
+    font-size: @fontSizeSmall;
+
+    .mz-utilitynav-item {
+        float: left;
+        margin: 0;
+        padding: 0 10px;
+        text-align: right;
+        font-size: 1em;     
+        font-weight: 400;
+        vertical-align: middle;  
+        
+        &:last-child {
+            padding-right: 0;
+            text-align: right;
+            float: right;
+        }
+        
+    }
+    
+    .member-links {
+        
+        a {
+            color: #532f91;
+            position: relative;
+            
+            &:first-child {
+                padding-left: 40px;
+            }
+            
+            &:first-child:before {
+                content: "\26";
+                font-family: 'icomoon';     
+                padding-right: 8px;
+                vertical-align: middle;   
+                color: #999999;
+                font-size: 29px;
+                position: absolute;
+                left: 0;
+                bottom: -10px;
+            }            
+        }
+        
+        #mz-logged-in-notice a {
+            
+            &:first-child { padding-left:0; }
+            
+            &:first-child:before { display:none; }
+
+        }
+
+    }    
+
+    .mz-utilitynav-link {
+        .permalink(@textColor);
+        color: #532f91;
+        font-weight: 400;
+    }
+    
+    .mz-utilitynav-link-cart {
+        position: relative;
+        padding-left: 50px;
+        font-size: 16px;
+        
+        .mz-cartmonitor {
+            position: absolute;
+            left: 25px;
+            top: -8px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+                -webkit-border-radius: 50%;
+            background: #00b259;
+            text-align: center;
+        }
+        
+        
+        
+        &:before {
+            content: "\22";
+            font-family: 'icomoon';     
+            padding-right: 8px;
+            vertical-align: middle;   
+            color: #999999;
+            font-size: 40px;
+            line-height: 1; 
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+        }
+    }
+
+}

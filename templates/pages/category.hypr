@@ -1,0 +1,34 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %}  - {% parent %}{% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-category {% endblock body-tag-classes %}
+
+{% block body-content %}
+
+{% require_script "pages/category" %}
+
+
+<div class="container">
+    <div class="grid_12">
+        <div data-mz-category="{{model.categoryId}}" class="mz-l-container">
+            {% dropzone "category-page-top" scope="page" %}
+            <h1 class="title">{{ model.name|safe }}</h1>        
+            {% partial_cache model.categoryId pageContext.Sorting pageContext.Pagination %}
+            {% include_products "modules/product/faceted-products" with includeFacets=themeSettings.showCategoryFacets and pageWithUrl=true and sortWithUrl=true and pageSize=themeSettings.defaultPageSize as_parameter %}
+            {% endpartial_cache %}
+        </div>
+    </div>
+</div>
+<section class="banner-callout">
+    <div class="container">
+        {% dropzone "category-page-bottom" scope="page" %}
+    </div>
+</section>
+
+{% if themeSettings.qvEnabled %}
+{% require_script "modules/quick-view" %}
+{% include "modules/quick-view/quick-view" %} 
+{% endif %}
+
+{% endblock body-content %}

@@ -1,0 +1,38 @@
+<div class="mz-l-row mz-slideshow mz-row-slideshow hero-banner" style="z-index: -59;position: relative;">
+
+
+    {% if themeSettings.mainNavBannerGraphic2 != "" %}
+    <div class="mz-slideshow__content">
+
+        <img src="{{Model.config.url1}}" width="100%"/>
+
+        <a href="#" data-category-name="bicycles">
+            <img src="https:{{ siteContext.cdnPrefix }}{{ themeSettings.homeSlideContent1 }}" alt="" style=""/>
+        </a>
+    </div> 
+    {% endif %}
+
+    {% if themeSettings.mainNavBannerGraphic2 != "" %}
+
+    <div class="mz-slideshow__content">
+        <img src="{{Model.config.url2}}" width="100%"/>
+        <a href="#" data-category-name="tents">
+            <img src="https:{{ siteContext.cdnPrefix }}{{ themeSettings.homeSlideContent2 }}" alt="" style="">
+        </a>
+    </div> 
+
+
+    {% endif %}
+
+    {% if themeSettings.mainNavBannerGraphic3 != "" %}
+    <div class="mz-slideshow__content">
+        <img src="{{Model.config.url3}}" width="100%"/>
+        <a href="#" data-category-name="skis">
+            <img src="https:{{ siteContext.cdnPrefix }}{{ themeSettings.homeSlideContent3 }}" alt="" style="">
+        </a>
+    </div>
+
+    {% endif %}
+
+
+</div>

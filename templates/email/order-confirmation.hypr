@@ -1,0 +1,144 @@
+{% extends "email/email" %}
+
+{% block body-content %}
+<!-- {% dropzone "email-image" %}--> 
+<div>
+    <br>
+    <p>
+    <h4>
+        {{ labels.orderWelcome }} {{ model.billingInfo.billingContact.firstName }} {{ model.billingInfo.billingContact.lastNameOrSurname }},
+    </h4>
+    </p>
+
+<p>{{ labels.orderConfirmationBlob1|string_format(siteContext.generalSettings.websiteName, domainName)|safe }}</p>
+
+<table width="100%" cellpadding="1" class="mz-order-confirmation-table">
+    <thead colspan="2">
+        <tr>
+            <td bgcolor="#666666" style="padding: 8px; width: 25%;">
+                <font color="#FFFFFF">{{ labels.orderDetails }}</font>
+            </td><td bgcolor="#666666">
+            </td>
+        </tr>   
+    </thead>
+
+    <tbody>
+        <tr>
+            <td >
+                <b>{{ labels.orderNo }}</b>: </td><td>{{ model.orderNumber }} 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>{{ labels.shipTo }}</b>:
+            </td>
+            <td>
+                {% include "modules/common/email-address-summary" with model=model.fulfillmentInfo.fulfillmentContact %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>{{ labels.shippingMethod }}</b>: 
+            </td>
+            <td>
+                {{ model.fulfillmentInfo.shippingMethodName }}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <b>Billing Information</b>:
+            </td>
+            <td>
+                {% include "modules/common/email-address-summary" with model=model.billingInfo.billingContact %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Payment Method</b>: 
+            </td>
+            <td>
+                {% if model.billingInfo.paymentType == "CreditCard" %}
+                {{ model.billingInfo.card.paymentOrCardType }} {{ model.billingInfo.card.cardNumberPartOrMask }}
+                {% endif %}
+
+                {% if model.billingInfo.paymentType == "PaypalExpress" %}
+                PayPal Express
+                {% endif %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% include "modules/common/email-order-summary" %}
+
+{% if model.shopperNotes.comments %}
+<h5>{{ labels.comments }}</h5>
+<br><p>{{ model.shopperNotes.comments }}</p>
+{% endif %}
+
+{% if model.shopperNotes.giftMessage %}
+<h5>{{ labels.giftMessage }}</h5>
+<br><p>{{ model.shopperNotes.giftMessage }}</p>
+{% endif %}
+
+<b>{{ labels.emailClosing|string_format(siteContext.generalSettings.websiteName)|safe }}</b>
+
+</div>
+{% endblock body-content %}
+
+
+
+    {% comment %} 
+    <p>{{ labels.orderWelcome }} {{ model.billingInfo.billingContact.firstName }} {{ model.billingInfo.billingContact.lastNameOrSurname }}!</p>
+    <br>
+    <p>{{ labels.orderConfirmationBlob1|string_format(siteContext.generalSettings.websiteName, domainName)|safe }}</p>
+
+    <table width="100%" cellpadding="1" width="100%">
+        <thead>
+            <tr>
+                <td bgcolor="#666666">
+                    <font color="#FFFFFF">{{ labels.orderDetails }}</font>
+                </td>
+            </tr>   
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    <b>{{ labels.orderNo }}</b>: {{ model.orderNumber }} <a href="http://{{ domainName }}/user/login">{{ labels.checkOrderStatus }}</a><br/><br/>
+                    <b>{{ labels.shipTo }}</b>:<br><br>{% include "modules/common/email-address-summary" with model=model.fulfillmentInfo.fulfillmentContact %}<br><br>
+                    <b>{{ labels.shippingMethod }}</b>: {{ model.fulfillmentInfo.shippingMethodName }}<br>
+                </td>
+            </tr>
+
+			{% ifnotequal model.total 0 %}
+           <tr>
+
+                <td>
+                    <b>{{ labels.billingInformation }}</b>:<br><br>{% include "modules/common/email-address-summary" with model=model.billingInfo.billingContact %}<br><br>
+                        {% if model.billingInfo.paymentType == "CreditCard" %}
+                            <b>{{ labels.paymentMethod }}</b>: {{ model.billingInfo.card.paymentOrCardType }} {{ model.billingInfo.card.cardNumberPartOrMask }}
+                        {% endif %}                        
+                </td>
+            </tr>
+
+			{% endifnotequal %}
+        </tbody>
+    </table>
+
+    {% include "modules/common/email-order-summary" %}
+    
+    {% if model.shopperNotes.comments %}
+        <h5>{{ labels.comments }}</h5>
+        <br><p>{{ model.shopperNotes.comments }}</p>
+    {% endif %}
+    
+    {% if model.shopperNotes.giftMessage %}
+        <h5>{{ labels.giftMessage }}</h5>
+        <br><p>{{ model.shopperNotes.giftMessage }}</p>
+    {% endif %}
+
+    {{ labels.emailClosing|string_format(siteContext.generalSettings.websiteName)|safe }}
+{% endblock body-content %}
+{% endcomment %}

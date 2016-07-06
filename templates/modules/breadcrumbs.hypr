@@ -1,0 +1,14 @@
+<div class="mz-breadcrumbs">
+    
+    <a href="/" class="mz-breadcrumb-link is-first">Home</a> <span class="mz-breadcrumb-separator">/</span>
+    
+    {% for crumb in navigation.breadcrumbs %}
+    
+    {% if forloop.revcounter > 1 %}
+    <a href="{{crumb.url}}" class="mz-breadcrumb-link">{{crumb.name|safe}}</a> <span class="mz-breadcrumb-separator">/</span>
+    {% else %}
+    <span class="mz-breadcrumb-current">{{ crumb.name|safe }}</span>
+    {% endif %}
+    
+    {% endfor %}
+</div>

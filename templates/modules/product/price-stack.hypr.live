@@ -1,0 +1,16 @@
+
+{% if model.hasPriceRange %}
+    <span itemprop="minPrice" class="mz-pricestack-price-lower">
+        {% include "modules/common/price" with model=model.priceRange.lower %}
+    </span>
+    <span itemprop="maxPrice" class="mz-pricestack-price-upper">
+        {% include "modules/common/price" with model=model.priceRange.upper %}
+    </span>
+{% else %}    
+    
+    {% include "modules/common/price" %}
+   
+{% endif %}    
+    
+    
+

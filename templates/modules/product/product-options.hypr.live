@@ -1,0 +1,31 @@
+<div class="mz-productdetail-fulldesc mz-l-stack-section">
+    <!--<h4 class="mz-l-stack-sectiontitle">{{ labels.fullDesc }}</h4>-->
+    {{ model.content.productFullDescription|safe }}
+</div>
+<!-- Yotpo Reviews -->
+{% if themeSettings.yotpoAppId != "" %}
+	<div class="mz-l-stack-section">
+		<h4 class="mz-l-stack-sectiontitle">Reviews</h4>
+		<div class="mz-l-container">
+			<div class="mz-product__summary">
+				{% include "modules/product/yotpo-product-display" %}
+			</div>
+		</div>
+	</div>
+{% endif %}	
+
+<!-- {% if model.properties and themeSettings.showProductDetailProperties %}
+<div class="mz-productdetail-properties mz-l-stack-section">
+<h4 class="mz-l-stack-sectiontitle">{{ labels.properties }}</h4>
+<dl class="mz-propertylist mz-propertylist-justified tabs">
+{% for property in model.properties %}
+{% if property.values and not property.isHidden %}
+<dt>{{property.attributeDetail.name}}</dt>
+{% for v in property.values %}
+<dd><div class="tab-content">{% if v.stringValue %}{{v.stringValue}}{% else %}{{v.value}}{% endif %}</div></dd>
+{% endfor %}
+{% endif %}
+{% endfor %}
+</dl>
+</div>
+{% endif %} -->

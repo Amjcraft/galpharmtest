@@ -1,0 +1,6 @@
+{% if themeSettings.yotpoAppId != "" %}        <!-- YotPo Enabled -->
+{% require_script "modules/yotpo-product-display" %}
+{{Model.config.body|default_edit:'add content here'|safe}}
+{% endif %}
+
+

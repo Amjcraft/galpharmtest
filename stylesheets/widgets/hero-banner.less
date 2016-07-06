@@ -1,0 +1,112 @@
+#mz-drop-zone-hero-banner .mz-cms-row {
+    max-width: 1400px;
+}
+
+.hero-banner {
+    position: relative;
+    overflow:hidden;
+    border-top:3px solid #532f91;
+    border-bottom:3px solid #532f91;
+
+    .mz-cms-content &.slick-slider {
+        margin: -35px -30px 30px;
+    }
+
+    .media {
+        padding-top:37.64%;
+        width:100%; height:0;
+        background-repeat: no-repeat;
+        background-position: 100% 0;
+        background-size:100%;
+    }
+    .content {
+        padding:0 20px;
+        text-align:center;
+
+        h2 {
+            margin-top:.5em; margin-bottom: 30px;
+            color: #532f91;
+            font-size: 3em;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+
+
+            span {
+                display: block;
+                color: #532f91;
+                font-size: 0.657em;
+                font-weight: 400;
+            }      
+        }
+
+        p {
+            color: #333333;
+            font-size: 15px;
+            font-weight: 400; 
+            line-height: 24px;
+        }
+    }
+    .slick-slide { position:relative; padding-bottom:30px; height:auto; }
+
+    .slick-dots {
+        bottom: -10px;
+        overflow:hidden;
+
+        li button {
+            border: 2px solid #532f91;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            width: 15px;
+            height: 15px;
+
+            &:before {content: none;}
+        }
+
+        .slick-active button {
+            background: #532f91;
+        }
+    }
+
+    @media (min-width:768px) {
+        border:0;
+        max-width: 1400px;
+        background-position: 0 0;        
+
+        .mz-cms-content &.slick-slider {
+            margin:0 auto 30px;    
+        }
+
+        .container { 
+            position:absolute; z-index:20; 
+            top:0; left:0;
+            width:100%;
+        }
+        .content { 
+            position: absolute;
+            top: 10px;
+            left: 5%;
+            max-width:45%;
+            padding:0;
+            text-align:left;
+
+            h2 { margin:.2em 0; font-size: 3em; }
+        }
+
+        .slick-dots {
+            bottom:50px;
+        }
+    }
+
+    @media (min-width:1024px){
+        .content {         
+            h2 { margin:0.83em 0 30px; font-size: 4.375em; }
+            p { font-size: 18px; }
+        }
+    }
+
+    @media (min-width:1190px){
+        .content { top: 30px; left:110px; }
+    }
+
+}

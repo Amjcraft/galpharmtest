@@ -1,0 +1,30 @@
+.mz-scrollnav {
+    background: #606262;
+    
+    .mz-scrollnav-item {
+        margin: @gutter/4 0;
+        border-bottom: 1px solid #999999;
+        &.active .mz-scrollnav-link {
+            font-weight: bold;
+        }
+        
+        &:last-child {
+            border: 0;
+        }
+    }
+    .mz-scrollnav-link {
+        .permalink(#fff);
+        font-size: 1em;
+        font-weight: 700;
+    }
+    
+    &.affix { 
+        position:static;
+        
+        @media (min-width:768px) {
+            position:fixed;
+            max-width:222px;
+        }
+    }
+
+}

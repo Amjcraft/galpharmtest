@@ -1,0 +1,61 @@
+{% extends "page" %}
+
+{% block title-tag-content %}{% firstof pageContext.metaTitle model.name %} - {% parent %}{% endblock title-tag-content %}
+
+{% block body-tag-classes %} mz-homepage {% endblock body-tag-classes %}
+
+{% block breadcrumbs %}
+
+{% endblock breadcrumbs %}
+
+{% block body-content %}
+    
+    
+    <!-- Create New Dropzone/Module -->      
+    {% require_script "widgets/HomeSlider" %}
+    {% dropzone "hero-banner" scope="page" %}               
+    <!-- / -->    
+    
+    <div class="container">
+        <h2 class="mod-title">Shop our offers to enjoy <span>Big Savings</span></h2>
+        {% dropzone "featured-items" scope="page" %}
+    </div>
+    
+    <!-- Create New Dropzone/Module -->
+    <section class="banner-callout home-banner-callout">                        
+        <div class="container">                            
+            {% dropzone "banner-callout" scope="page" %} 
+        </div>
+    </section>
+    <!-- / -->                
+
+    <!-- Create New Dropzone/Module -->
+    <div class="container">
+        <section class="home-product-banners clearfix">
+            <div class="grid_4">
+                <div class="banner">
+                    {% dropzone "home-product-banner-1" scope="page" %}                                 
+                </div>                                
+            </div>
+            <div class="grid_4">
+                <div class="banner">
+                    {% dropzone "home-product-banner-2" scope="page" %}                                     
+                </div>                                
+            </div>  
+            <div class="grid_4">
+                <div class="banner">
+                    {% dropzone "home-product-banner-3" scope="page" %}                                     
+                </div>                                
+            </div>                                                                                      
+        </section>  
+
+        <hr />                      
+    </div>
+    <!-- / -->     
+    
+{% endblock body-content %}
+
+{% block body-below-content %}
+{% endblock body-below-content %}
+
+

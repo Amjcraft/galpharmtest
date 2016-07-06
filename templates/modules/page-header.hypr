@@ -1,0 +1,20 @@
+<header class="mz-pageheader{% if themeSettings.bannerImageEnabled %} mz-pageheader-hasbanner {% endif %}" role="banner">	
+    {% block site-top %}
+    {% include "modules/page-header/site-top" %}
+    {% endblock site-top %}	
+	<div class="container m_1half">
+		<div class="grid_8 alpha">
+		   {% block store-branding %}
+		        {% include "modules/page-header/store-branding" %}
+		    {% endblock store-branding %}
+		</div>  
+		<div class="grid_4 clearfix omega">  
+		    {% block utility-nav %}
+		        {% include "modules/page-header/utility-nav" %}
+		    {% endblock utility-nav %}
+		    {% block search-box %}
+		        {% include "modules/page-header/search-box" %}
+		    {% endblock search-box %}
+		</div>		   
+	</div>
+</header>

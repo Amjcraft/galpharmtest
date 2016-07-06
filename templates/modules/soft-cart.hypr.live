@@ -1,0 +1,82 @@
+<a class="mz-utilitynav-link mz-utilitynav-link-cart fa fa-shopping-cart" href="/cart">
+    <span class="mz-cartmonitor" data-mz-role="cartmonitor">{{ model.count }}</span>
+    {{ model.discountedTotal|currency }}
+    {% require_script "modules/cart-monitor" %}    
+</a>
+<div class="soft-cart-wrap soft-cart {% if model.items.length == 0 %} is-empty{% endif %}">
+    <!--<h1>{{ labels.cart }}</h1>-->
+    <div class="soft-cart-items-label">
+        {{ labels.items }} 
+    </div> 
+    {% if not model.isEmpty %}
+        <ul class="{% if model.count <= 3 %} soft-cart-items-small {% else %} soft-cart-items {% endif %}">
+            {% for item in model.items %}
+                <li class="soft-cart-item" data-mz-cart-item="{{ item.id }}">
+                    <div>
+                        <img class="soft-cart-item-image" src="{{ item.product.imageUrl }}?max=80" alt="{{ item.product.name }}" />
+                        <span><a class="soft-cart-item-title" href="{{ item.product.url }}">{{ item.product.name }}</a></span>
+                    </div>
+                    <span class="soft-cart-item-quantity">{{ labels.qty }}: {{ item.quantity }}</span>
+                    <input type="hidden" value="{{ item.quantity }}" class="{{ item.product.productCode }}" /> 
+                    {% for property in item.product.properties %}
+                        {% if property.attributeFQN == "tenant~active-ingredients" || property.attributeFQN == "Tenant~active-ingredients" %}
+                            {% for v in property.values %}
+                                {% if v.value %}
+                                    <input type="hidden" data-ingredient="{{ v.value }}" />
+                                {%  endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% for property in item.product.properties %}
+                        {% if property.attributeFQN == "tenant~restriction-unit-count" || property.attributeFQN == "Tenant~restriction-unit-count" %}
+                            {% for v in property.values %}
+                                {% if v.value %}
+                                    <input type="hidden" data-unit-qty="{{ v.value }}" />
+                                {%  endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+
+                    <!-- {% for property in item.product.properties %}
+                        {% if property.attributeFQN == "tenant~same-active-restrictions" || property.attributeFQN == "Tenant~same-active-restrictions" %}
+                            {% for v in property.values %}
+                                {% if v.value %}
+                                    <input type="hidden" data-max-ingredient="{{ v.value }}" />
+                                {%  endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}  -->    
+                                                                                                                                                                                                                                                                                                                                      
+                    <!--<a class="soft-cart-item-action soft-cart-item-action-more" data-mz-action="increaseQuantity" data-mz-cart-item="{{ item.id }}" href="javascript:;" title="More">&#xFE3F;</a>
+                    {% if item.quantity > 1 %}
+                        <a class="soft-cart-item-action soft-cart-item-action-less" data-mz-action="decreaseQuantity" data-mz-cart-item="{{ item.id }}" href="javascript:;" title="Less">&#xFE40;</a>
+                    {% endif %}
+                    <a class="soft-cart-item-action soft-cart-item-action-remove" data-mz-action="removeItem" data-mz-cart-item="{{ item.id }}" href="javascript:;" title="Remove">&#x2715;</a>-->
+                    |&nbsp;<span class="soft-cart-item-quantity">{{ labels.itemTotal }}: </span><span class="soft-cart-item-total"> {{ item.total|currency }}</span>
+                </li>
+            {% endfor %}             
+        </ul>
+        <div class="soft-cart-total">
+            <div class="soft-cart-total-section">
+                <span class="soft-cart-total-label">
+                  {{ labels.total }}:
+                </span>
+                <span class="soft-cart-total-amount">
+                  {{ model.discountedTotal|currency }}
+                </span> 
+            </div>
+        </div>
+        <div class="soft-cart-controls">
+            <a class="soft-cart-control soft-cart-control-checkout" data-mz-action="goToCart" href="/cart">
+              {{ labels.viewCart }}
+            </a>
+        </div>
+  {% else %}
+      <span class="mz-soft-cart-noitems">
+        <strong>
+            {{ labels.cartEmpty }}
+        </strong>
+      </span>
+  {% endif %}  
+</div>

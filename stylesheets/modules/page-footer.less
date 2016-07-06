@@ -1,0 +1,46 @@
+.mz-pagefooter {
+    background: url("{{themeSettings.footBackground}}") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 20px 0;
+    overflow: hidden;
+    
+    img { max-width:100%; height:auto !important; }
+    
+    ul.link-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 15px 0;
+        
+        li {
+            display: inline-block;
+            margin:10px 0;
+            padding-right: 20px;
+        }
+        a, a:link, a:visited {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;            
+        }
+    }
+    .mz-pagefooter-copyright {
+        padding: 15px 0 0;
+        color: #999999;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 130%;
+        a {
+            color: white
+        }
+    } 
+    
+    @media (min-width: 768px) {
+        ul.link-list { 
+            margin:0; 
+            
+            li { margin:0; }
+        }
+        
+    }
+    
+}
+

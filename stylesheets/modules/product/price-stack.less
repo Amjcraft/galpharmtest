@@ -1,0 +1,27 @@
+.mz-productdetail-price {
+    float: left;
+}
+
+.mz-pricestack {
+    position: relative;
+    
+    .mz-price {
+        font-size: 30px !important;
+    }
+   
+    .mz-pricestack-price-lower {
+        &::after {
+            content: "\2014";
+        }
+    }
+    
+    .is-saleprice {
+        color: #cc0000;
+        font-weight: 700;        
+    }
+    
+    .is-crossedout {
+        color: #999999;
+        font-weight: 400;        
+    }
+}

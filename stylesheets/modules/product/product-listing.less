@@ -1,0 +1,129 @@
+h2.mod-title {    
+    text-align: center;
+    font-family: Roboto;
+    color: #532f91;
+    font-size:  1.875em;
+    font-weight: 400;
+    position: relative;
+
+    span {
+        color: #00b259;
+        font-weight: 700;
+        text-transform: uppercase;
+    }   
+
+    @media (min-width:768px){
+        padding:0 20%;
+        
+        &:before {
+            content: "";
+            background: #e6e6e6;
+            width: 20%;
+            height: 5px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+
+        }
+
+        &:after {
+            content: "";
+            background: #e6e6e6;
+            width: 20%;
+            height: 5px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+
+        }
+    }
+}
+
+.mz-productlist-item {
+    margin-bottom: 30px;
+}
+
+.mz-productlisting {
+
+    .mz-productlisting-info {
+        margin-top: 5px;
+        
+        .mz-pricestack {
+            margin-top: 15px;
+            
+            .mz-price {
+                color: #00b259;
+                font-size: 1.125em;
+                font-weight: 700;     
+
+            }
+            
+            .mz-price.is-saleprice {color: #cc0000;}
+            .mz-price.is-crossedout {color: #999999;}            
+        }
+        
+        .rrsp-price {
+            display: inline-block;
+            float: right;
+            font-size: @fontSizeSmall;
+        }
+    }
+    
+
+    .mz-productlisting-title {
+        color: #532f91;
+        font-size: 0.875em;
+        font-weight: 700;
+        text-decoration: none;
+        display: block;
+    }
+    .mz-productlisting-shortdesc {
+        margin: 0;
+        color: #666666;
+        font-size: 0.875em;
+        font-weight: 400;        
+    }
+    .mz-productlisting-productcode {
+        font-size: @fontSizeSmall;
+        display: inline-block;
+        float: left;
+    }
+
+    .mz-productlisting-imageplaceholder {
+        display: block;
+        height: @productListingThumbSize;
+        width: @productListingThumbSize;
+        background: #eee;
+        line-height: @productListingThumbSize;
+        text-align: center;
+        color: #aaa;
+        > * {
+            vertical-align: middle;
+        }
+
+        > .mz-productlisting-imageplaceholdertext {
+            vertical-align: top;
+        }
+    }
+
+    &.mz-productlisting-forlocation {
+        .mz-productlisting-image, .mz-productlisting-info {
+            float: left;
+            margin: @gutter/2;
+        }
+    }
+}
+
+.mz-departmentlist {
+    text-align: center;
+    .mz-productlisting-title {
+        display: block;
+        margin: 15px 0;
+        color: #532f91;
+        font-size: 1.125em;
+        font-weight: 700;
+        line-height: 1;
+        
+    }
+}
+
